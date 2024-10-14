@@ -15,6 +15,16 @@
 #
 def triangle(a, b, c)
   # WRITE THIS CODE
+  [a, b, c].permutation do |sides|
+    raise TriangleError unless sides[0] + sides[1] > sides[2]
+  end 
+  if a==b and b==c
+    return :equilateral
+  end
+  if a==b or a==c or b==c
+    return :isosceles
+  end
+  return :scalene
 end
 
 # Error class used in part 2.  No need to change this code.
